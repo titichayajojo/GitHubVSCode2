@@ -61,14 +61,6 @@ class Window(QMainWindow):
         canvasPainter  = QPainter(self)
         canvasPainter.drawImage(self.rect(),self.image, self.image.rect() )
 
-    def save(self):
-        filePath, _ = QFileDialog.getSaveFileName(self, "Save Image", "", "PNG(*.png);;JPEG(*.jpg *.jpeg);;All Files(*.*) ")
-
-        if filePath == "":
-            return
-        self.image.save(filePath)
-
-
 
     def clear(self):
         self.image.fill(Qt.white)
