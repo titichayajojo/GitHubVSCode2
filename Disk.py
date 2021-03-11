@@ -36,11 +36,5 @@ class Disk(object):
 
             
 
-disk1 = Disk("test",100,100,20,100,"RED")
-disk2 = Disk("test",80,10,20,100,"BLUE")
-
-disk1.showdisk()
-disk2.showdisk()
-disk1.cleardisk()
 
 
