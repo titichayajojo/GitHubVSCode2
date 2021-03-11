@@ -1,40 +1,50 @@
-import turtle 
+from turtle import *
 
-class Disk(object):
-    def __init__(self,name, x, y, h, w, c):
-        self.t = turtle.Turtle()
+class Disk():
+    def __init__(self, name, x, y, height, width):
         self.name = name
         self.x = x
         self.y = y
-        self.h = h
-        self.w = w
-        self.c = c
+        self.height = height
+        self.width = width
 
     def showdisk(self):
-        self.t.penup()
-        self.t.goto(self.x,self.y)
-        self.t.pendown()
-        self.t.fillcolor(self.c)
-        self.t.begin_fill()
-        self.t.fd(self.w / 2)
-        self.t.left(90)
-        self.t.fd(self.h)
-        self.t.left(90)
-        self.t.fd(self.w)
-        self.t.left(90)
-        self.t.fd(self.h)
-        self.t.left(90)
-        self.t.fd(self.w / 2)
-        self.t.end_fill()
+        pu()
+        goto(self.x, self.y)
+        pd()
+        fillcolor("red")
+        begin_fill()
+        fd(self.width / 2)
+        lt(90)
+        fd(self.height)
+        lt(90)
+        fd(self.width)
+        lt(90)
+        fd(self.height)
+        lt(90)
+        fd(self.width / 2)
+        end_fill()
 
-    def newpos(self,x,y):
+    def newpos(self, x, y):
+        self.cleardisk()
         self.x = x
         self.y = y
+        self.showdisk()
 
     def cleardisk(self):
-        self.t.clear()
-
-            
-
-
-
+        pu()
+        goto(self.x, self.y)
+        pd()
+        pencolor("white")
+        fillcolor("white")
+        begin_fill()
+        fd(self.width / 2)
+        lt(90)
+        fd(self.height)
+        lt(90)
+        fd(self.width)
+        lt(90)
+        fd(self.height)
+        lt(90)
+        fd(self.width / 2)
+        end_fill()

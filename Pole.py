@@ -29,7 +29,7 @@ class Pole:
         lt(90)
         fd(self.thickness / 2)
         seth(0)
-        # end_fill()
+        end_fill()
 
     def pushdisk(self, disk):
         self.stack.append(disk)
