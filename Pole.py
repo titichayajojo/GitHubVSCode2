@@ -1,30 +1,42 @@
-import turtle as t
-class Pole(object):
-    def __init__(self,name,stack,top_po,x_po,y_po,thinckness,length,color):
+  
+from turtle import *
+
+class Pole:
+    def __init__(self, name, x, y):
         self.name = name
-        self.stack =stack
-        self.top_po = top_po
-        self.x_po = x_po
-        self.y_po = y_po
-        self.thinckness = thinckness
-        self.length = length
-        self.color = color
+        self.x = x
+        self.y = y
+        self.stack = []
+        self.top_position = 0
+        self.thickness = 30
+        self.length = 210
 
     def showpole(self):
-        for i in range(2):
-            t.fillcolor(self.color)
-            t.begin_fill()
-            t.fd(10)
-            t.left(90)
-            t.fd(100)
-            t.left(90)
-            t.end_fill()
-        t.mainloop()
-    def clear_pole(self):
-        t.clear()
-    
+        speed(0)
+        pu()
+        color("black")
+        goto(self.x, self.y)
+        seth(0)
+        pd()
+        begin_fill()
+        fd(self.thickness / 2)
+        lt(90)
+        fd(self.length)
+        lt(90)
+        fd(self.thickness)
+        lt(90)
+        fd(self.length)
+        lt(90)
+        fd(self.thickness / 2)
+        seth(0)
+        # end_fill()
 
+    def pushdisk(self, disk):
+        self.stack.append(disk)
+        disk.newpos(self.x, self.y + disk.height * len(self.stack))
 
-a = Pole(1,1,1,1,1,1,1,"red")
-a.showpole()
-a.clear_pole()
+    def popdisk(self):
+        disk = self.stack.pop(len(self.stack) - 1)
+        disk.newpos(self.x, self.length + 50)
+        self.showpole()
+        return disk
