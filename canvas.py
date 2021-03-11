@@ -32,6 +32,8 @@ class Window(QMainWindow):
 
         pybutton = QPushButton('Clear', self)
         pybutton.clicked.connect(self.clear)
+        pybutton.move(500,500)
+        
 
 
     def mousePressEvent(self, event):
